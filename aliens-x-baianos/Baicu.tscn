@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8wdle2cduogf"]
+
+[ext_resource type="Script" path="res://area_2d.gd" id="1_r6ege"]
+[ext_resource type="Texture2D" uid="uid://74yanogcxtjb" path="res://assets/fishTilesheet.png" id="2_r12kx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8dba"]
+atlas = ExtResource("2_r12kx")
+region = Rect2(640, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ke8ly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8dba")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7qsy"]
+radius = 24.0
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(582, 549)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_r6ege")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ke8ly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_l7qsy")
